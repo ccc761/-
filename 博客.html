@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>博客</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      body,
+      html {
+        margin: 0;
+        padding: 0;
+        height: 100%;
+        font-family: "Roboto", sans-serif;
+      }
+      body {
+        margin: 0;
+        height: 100vh;
+        background-image: url("./top.jpg");
+        background-size: cover;
+        background-position: center;
+      }
+      .container {
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+      }
+      .top {
+        height: 20vh;
+        position: relative;
+        background-color: rgba(255, 255, 255, 0.7);
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0 20px;
+        box-sizing: border-box;
+      }
+      .top h2 {
+        margin: 0;
+      }
+      .daohang {
+        top: 0;
+        display: flex;
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        gap: 20px;
+      }
+      .daohang li {
+        margin: 0;
+      }
+      .daohang a {
+        text-decoration: none;
+        color: #333;
+        font-size: 1em;
+      }
+      .content {
+        flex: 1;
+        display: grid;
+        grid-template-columns: 65% 30%;
+        gap: 40px;
+        padding: 20px;
+        box-sizing: border-box;
+        overflow-y: auto;
+        margin-left: 5%;
+        margin-right: 5%;
+      }
+      .left,
+      .right {
+        padding: 20px;
+        box-sizing: border-box;
+        background-color: rgba(255, 255, 255, 0.7);
+        border-radius: 8px;
+      }
+      .right {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+      }
+      .jieshao {
+        text-align: center;
+        background-color: white;
+        opacity: 0.9;
+        border-radius: 8px;
+      }
+      .jieshao img {
+        width: 100px;
+        height: 100px;
+        border-radius: 50%;
+        margin-bottom: 20px;
+      }
+      .sousuo {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+      }
+      .sousuo input[type="text"] {
+        width: 100%;
+        padding: 10px;
+        box-sizing: border-box;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+      }
+      .sousuo input[type="text"]:focus {
+        outline: none;
+        box-shadow: 0 0 5px rgba(81, 203, 238, 1);
+      }
+      .sousuo button {
+        width: 100%;
+        padding: 10px;
+        background-color: rgb(242, 190, 168);
+        color: white;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+      }
+      .liuyan {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+        background-color: white;
+        opacity: 0.8;
+        border-radius: 8px;
+      }
+      .liuyan div {
+        display: flex;
+        align-items: center;
+        background-color: white;
+        opacity: 0.9;
+        border-radius: 8px;
+        margin-top: 10px;
+        margin-left: 10px;
+      }
+      .liuyan img {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        margin-right: 15px;
+      }
+      .liuyan span {
+        color: palevioletred;
+      }
+      .footer {
+        text-align: center;
+        padding: 10px;
+        color: black;
+        background-color: rgba(255, 255, 255, 0.7);
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background-clip: padding-box;
+      }
+      .myskills {
+        background-color: white;
+        opacity: 0.9;
+        border-radius: 8px;
+        margin: 10px;
+        text-align: center;
+      }
+      .myskills h2 {
+        color: rgb(240, 199, 110);
+        margin: 0;
+      }
+      .skills {
+        margin-left: 50px;
+        display: grid;
+        grid-template-columns: 40% 40%;
+        gap: 10px 10px;
+        margin-bottom: 5px;
+      }
+      .skills div {
+        background-color: rgb(240, 199, 110, 0.9);
+      }
+      .rizhi,
+      .xiangce {
+        background-color: white;
+        opacity: 0.9;
+        border-radius: 8px;
+      }
+      .rizhi img {
+        width: 100px;
+      }
+      .rizhiss {
+        display: grid;
+        grid-template-columns: 100px 1fr;
+        margin-top: 10px;
+        margin-left: 10px;
+      }
+      .rizhiss h3,
+      .rizhiss p {
+        margin: 0;
+      }
+      .xiangces img {
+        width: 200px;
+        height: 200px;
+      }
+      .xiangces {
+        display: grid;
+        grid-template-columns: 30% 30% 30%;
+        grid-template-rows: 30% 30% 30%;
+        gap: 10px 10px;
+        margin-left: 20px;
+      }
+      @media (max-width: 768px) {
+        .content {
+          grid-template-columns: 1fr;
+        }
+        .daohang {
+          flex-direction: column;
+          align-items: flex-start;
+          gap: 10px;
+        }
+        .daohang li {
+          margin-bottom: 10px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="top">
+        <h2>BLOG</h2>
+        <ul class="daohang">
+          <li><a href="#home">首页</a></li>
+          <li><a href="#recipes">日志</a></li>
+          <li><a href="#albums">相册</a></li>
+          <li><a href="#guestbook">留言</a></li>
+          <li><a href="#aboutme">关于我</a></li>
+        </ul>
+      </div>
+      <div class="content">
+        <div class="left">
+          <div class="rizhi">
+            <h2>最新日志</h2>
+            <div class="rizhis">
+              <div class="rizhiss">
+                <img src="../文本与图像实验包/10-鍥惧儚/images/1.jpg" alt="" />
+                <div>
+                  <h3>旅游的意义是什么</h3>
+                  <p>
+                    旅行不仅是身体的迁徙，更是心灵的放飞。其最大意义在于探寻、感悟与超越。旅行让人接触未知世界，激发好奇心和探索欲，促进个人成长；
+                  </p>
+                </div>
+              </div>
+              <div class="rizhiss">
+                <img src="../文本与图像实验包/10-鍥惧儚/images/2.gif" alt="" />
+                <div>
+                  <h3>机会是留给有准备的人</h3>
+                  <p>
+                    做任何事情，事前有准备就可以成功，没有准备就要失败。说话先有准备；行事前计划先有定夺，只有准备，机会总会来到的。
+                  </p>
+                </div>
+              </div>
+              <div class="rizhiss">
+                <img src="../文本与图像实验包/10-鍥惧儚/images/3.jpeg" alt="" />
+                <div>
+                  <h3>在校大学生如何理财</h3>
+                  <p>
+                    养成记账的习惯,许多大学生花钱无节制。而且，他们在消费时也往往缺乏一定的概念,他们甚至都搞不清楚自己的钱都到底花在什么地方了。
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="xiangce">
+            <h3>我的相册</h3>
+            <div class="xiangces">
+              <img src="./相册/20191227104355_vfgpx.jpg" alt="" />
+              <img src="./相册/20200824022707_hysmg.jpg" alt="" />
+              <img src="./相册/20201213161518_a2fa0.jpg" alt="" />
+              <img src="./相册/20201219103716_04fde.jpg" alt="" />
+              <img src="./相册/20210404151514_e8d69.jpeg" alt="" />
+              <img src="./相册/20210406141051_ce2fa.jpg" alt="" />
+              <img src="./相册/20210623155143_88dad.jpg" alt="" />
+              <img src="./相册/20210925170834_4bbab.jpg" alt="" />
+              <img src="./相册/20220823100506_a5a0c.jpg" alt="" />
+            </div>
+          </div>
+        </div>
+        <div class="right">
+          <div class="jieshao">
+            <img src="./touxiang0.jpg" alt="头像" />
+            <p>个性签名: 热爱美食，分享生活</p>
+            <p>家乡：四川广安</p>
+            <p>爱好：看剧、美食、旅游</p>
+            <p>星座：双鱼</p>
+            <p>
+              个人介绍：本人性格开朗，待人真诚，对工作有上进心，有很强的适应能力和团结精神。
+            </p>
+          </div>
+          <div class="myskills">
+            <h2>SKILLS</h2>
+            <div class="skills">
+              <div>HTML</div>
+              <div>CSS</div>
+              <div>JAVASCRIPT</div>
+              <div>C++</div>
+              <div>PYTHON</div>
+              <div>C语言</div>
+            </div>
+          </div>
+          <div class="sousuo">
+            <input type="text" placeholder="搜索日志..." />
+            <button>搜索</button>
+          </div>
+          <div class="liuyan">
+            <h3>留言</h3>
+            <div>
+              <img src="./touxiang1.jpg" alt="头像" />
+              <span>张三</span>
+              <p>这条留言是关于你的美食日志的。</p>
+            </div>
+            <div>
+              <img src="./touxiang2.jpg" alt="头像" />
+              <span>李四</span>
+              <p>非常喜欢你的分享，希望继续更新！</p>
+            </div>
+            <div>
+              <img src="./touxiang2.jpg" alt="头像" />
+              <span>李四</span>
+              <p>非常喜欢你的分享，希望继续更新！</p>
+            </div>
+            <div>
+              <img src="./touxiang2.jpg" alt="头像" />
+              <span>李四</span>
+              <p>非常喜欢你的分享，希望继续更新！</p>
+            </div>
+            <div>
+              <img src="./touxiang2.jpg" alt="头像" />
+              <span>李四</span>
+              <p>非常喜欢你的分享，希望继续更新！</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="footer">© 2023 美食爱好者博客.</div>
+    </div>
+  </body>
+</html>
